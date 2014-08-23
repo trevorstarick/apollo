@@ -1,0 +1,34 @@
+{
+  "name": "apollo",
+  "version": "0.0.1",
+  "authors": [
+    "Trevor Starick <trevor.starick@gmail.com>"
+  ],
+  "description": "A modular dashboard client/server",
+  "main": "index.js",
+  "keywords": [
+    "dashboard",
+    "admin"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "bootstrap": "~3.2.0",
+    "d3": "~3.4.11",
+    "fontawesome": "~4.1.0",
+    "html5-boilerplate": "~4.3.0",
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3",
+    "moment": "~2.8.2",
+    "threejs": "*",
+    "underscore": "~1.6.0"
+  }
+}

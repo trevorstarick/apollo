@@ -1,0 +1,26 @@
+{
+  "name": "apollo",
+  "version": "0.0.1",
+  "description": "A modular dashboard client/server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevorstarick/apollo"
+  },
+  "keywords": [
+    "dashboard",
+    "admin"
+  ],
+  "author": "Trevor Starick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trevorstarick/apollo/issues"
+  },
+  "homepage": "https://github.com/trevorstarick/apollo",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
