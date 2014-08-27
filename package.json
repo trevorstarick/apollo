@@ -22,5 +22,11 @@
   "homepage": "https://github.com/trevorstarick/apollo",
   "devDependencies": {
     "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "biguint-format": "^0.2.1",
+    "body-parser": "^1.6.5",
+    "hiredis": "^0.1.17",
+    "redis": "^0.12.1"
   }
 }
