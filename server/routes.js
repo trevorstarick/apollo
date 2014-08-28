@@ -43,16 +43,28 @@ Module.create = function(req,res) {
     name: req.body.name,
     description: req.body.description,
     type: req.body.type,
-    private: req.body.private,
+    data: [],
+    timestamp: [],
+    uuid: ''
   };
+
   if (req.body.token) {
     var uuid = ø.genHmac(object.token,object.name);
-    rdb.get(uuid,function(err,reply){
-      if(!reply) {
-        rdb.set(uuid, JSON.stringify(object), function(){
-          res.status(201).jsonp({
-            module_token:uuid
-          });
+    object.uuid = uuid;
+
+    Collection.find({uuid:uuid},function(err,reply) {
+      if(err) throw err;
+      if(!reply.length) {
+        console.log(object);
+        var item = new Collection(object);
+        item.save(function(e,r){
+          if(e) {
+            throw e;
+          } else {
+            console.log(uuid,'saved...');
+            r.status = 'success';
+            res.status(200).jsonp(r);
+          }
         });
       } else {
         res.status(202).jsonp({
@@ -64,7 +76,69 @@ Module.create = function(req,res) {
   } else {
     res.status(400).jsonp({
       error: 'Missing token',
-      message: 'Expected token. Got null'
+      message: 'Expected token. Got null.'
     });
   }
 };
+
+Module.read = function(req,res) {
+  console.log(req.query);
+  var uuid = req.query.uuid;
+  Collection.find({uuid:uuid},function(err,reply) {
+    if(!reply) {
+      res.status(404).jsonp({
+        error: 'Module doesn\'t exist',
+        message: 'Whooops there it isn\'t'
+      });
+    } else {
+      if(JSON.parse(reply).token === req.query.token) {
+        res.status(200).end(reply);
+      } else {
+        res.status(400).jsonp({
+          error: 'Missing or incorrect token',
+          message: 'Token failed'
+        });
+      }
+    }
+  });
+};
+
+Module.list = function(req,res) {
+  Collection.find( function(err,reply) {
+    res.status(200).jsonp({keys:reply});
+  });
+};
+
+Module.update = function(req,res) {
+  console.log(req.body);
+  var uuid = req.body.uuid;
+  var token = req.body.token;
+  var data =  req.body.data;
+  var timestamp = req.body.timestamp || Date.now();
+
+  Collection.find({uuid:uuid, token: token}, function(err,reply) {
+    if(err) throw err;
+    console.log(data,timestamp);
+
+    Collection.update({uuid:uuid, token:token},{
+        '$push':{
+          data: data,
+          timestamp: timestamp
+      }
+    }, function(e,r){
+      if(e) throw e;
+      console.log(r);
+      Status.OK(req,res);
+    });
+  });
+};
+
+router.get('/', Status.OK);
+
+router.get('/create', Status.OK);
+router.post('/create', Module.create);
+router.get('/read', Module.read);
+router.get('/list', Module.list);
+router.post('/update', Module.update);
+
+module.exports = router;
