@@ -4,10 +4,6 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 
-var redis = require('redis'),
-  rdb = redis.createClient();
-
-var ø = require('./helpers.js');
 var routes = require('./routes.js');
 
 var app = express();

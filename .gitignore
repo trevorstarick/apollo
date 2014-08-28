@@ -8,6 +8,9 @@ bower_components
 logs
 *.log
 
+# DB
+db
+
 # Runtime data
 pids
 *.pid

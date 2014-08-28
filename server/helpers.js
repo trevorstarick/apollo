@@ -6,7 +6,6 @@ var ø = {};
 	hmac = crypto.createHmac('sha1', key);
 	hmac.update(data);
 	var hmac_ = hmac.digest('hex');
-	console.log(hmac_);
 	return hmac_;
 };
 

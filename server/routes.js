@@ -1,5 +1,43 @@
-exports.create = function(req,res){
-  console.log(req.body);
+var router = require('express').Router();
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/modules');
+
+var Schema = mongoose.Schema;
+
+var moduleSchema = new Schema({
+  name:  String,
+  description: String,
+  token: String,
+  type: String,
+  data: Array,
+  timestamp: Array,
+  uuid: String
+});
+
+var Collection = mongoose.model('Module', moduleSchema);
+
+var ø = require('./helpers.js');
+
+var Status = {};
+var Module = {};
+
+/**
+ * Types
+ *   type   example
+ *   ----   -------
+ *   bool   isUp?
+ *   float  response time
+ *   int    number of users
+ *   event  button clicked
+ */
+
+Status.OK = function(req,res) {
+  res.status(200).send('OK');
+};
+
+
+Module.create = function(req,res) {
   var object = {
     token: req.body.token,
     name: req.body.name,
