@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"name": "apollo",
 	"description": "Module based admin dashboard",
 	"version": "0.0.1",
@@ -65,3 +66,37 @@
 		"karma-phantomjs-launcher": "~0.1.2"
 	}
 }
+=======
+  "name": "apollo",
+  "version": "0.0.1",
+  "description": "A modular dashboard client/server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevorstarick/apollo"
+  },
+  "keywords": [
+    "dashboard",
+    "admin"
+  ],
+  "author": "Trevor Starick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trevorstarick/apollo/issues"
+  },
+  "homepage": "https://github.com/trevorstarick/apollo",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "biguint-format": "^0.2.1",
+    "body-parser": "^1.6.5",
+    "hiredis": "^0.1.17",
+    "mongoose": "^3.8.15",
+    "redis": "^0.12.1"
+  }
+}
+>>>>>>> FETCH_HEAD
