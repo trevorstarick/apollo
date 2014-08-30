@@ -1,0 +1,27 @@
+{
+	"name": "apollo",
+	"version": "0.0.1",
+	"description": "Module based admin dashboard",
+	"dependencies": {
+		"bootstrap": "~3",
+		"angular": "~1.2",
+		"angular-resource": "~1.2",
+		"angular-mocks": "~1.2",
+		"angular-cookies": "~1.2",
+		"angular-animate": "~1.2",
+		"angular-touch": "~1.2",
+		"angular-sanitize": "~1.2",
+		"angular-bootstrap": "~0.11.0",
+		"angular-ui-utils": "~0.1.1",
+		"angular-ui-router": "~0.2.10",
+		"d3": "~3.4.11",
+	    "fontawesome": "~4.1.0",
+	    "html5-boilerplate": "~4.3.0",
+	    "jquery": "~2.1.1",
+	    "modernizr": "~2.8.3",
+	    "moment": "~2.8.2",
+	    "threejs": "*",
+	    "underscore": "~1.6.0"
+	  }
+	}
+}
