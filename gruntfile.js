@@ -3,12 +3,8 @@
 module.exports = function(grunt) {
 	// Unified Watch Object
 	var watchFiles = {
-		serverViews: ['app/views/**/*.*'], 
-		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
-		clientViews: ['public/modules/**/views/**/*.html'],
-		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
+		clientLESS: ['public/modules/**/*.less'],
 		clientCSS: ['public/modules/**/*.css'],
-		mochaTests: ['app/tests/**/*.js']
 	};
 
 	// Project Configuration
@@ -41,11 +37,25 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			},
+			clientLESS: {
+				files: watchFiles.clientLESS,
+				tasks: ['less'],
+				options: {
+					livereload: true
+				}
+			},
 			clientCSS: {
 				files: watchFiles.clientCSS,
 				tasks: ['csslint'],
 				options: {
 					livereload: true
+				}
+			}
+		},
+		less: {
+			production: {
+				files: {
+					'./public/css/*.css': './public/css/*.less'
 				}
 			}
 		},
