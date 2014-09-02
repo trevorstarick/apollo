@@ -1,0 +1,110 @@
+html,
+body {
+  color: #e0e0e0;
+  height: 100%;
+}
+#sidebar {
+  background-color: #282a2e;
+  width: 250px;
+  height: 100%;
+  padding: 10px;
+  float: left;
+}
+#sidebar > header {
+  width: 100%;
+}
+#sidebar > header > img {
+  font-size: 40px;
+}
+#sidebar > header > img {
+  width: 40px;
+  float: left;
+  margin-right: 5px;
+}
+#modules {
+  background-color: #1d1f21;
+  width: auto;
+  height: 100%;
+  padding: 50px;
+  overflow: hidden;
+}
+.module {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+svg {
+  font: 10px sans-serif;
+}
+.line {
+  fill: none;
+  stroke: #de935f;
+  stroke-width: 5px;
+}
+footer {
+  width: 100%;
+  height: 40px;
+  bottom: 0px;
+  text-align: center;
+  background: #000;
+  position: absolute;
+}
+.base16 {
+  width: 640px;
+  margin: 0 auto;
+}
+.base16 > * {
+  width: 40px;
+  height: 40px;
+  float: left;
+  padding: 10px;
+  color: #fff;
+}
+.base00 {
+  background: #1d1f21;
+}
+.base01 {
+  background: #282a2e;
+}
+.base02 {
+  background: #373b41;
+}
+.base03 {
+  background: #969896;
+}
+.base04 {
+  background: #b4b7b4;
+}
+.base05 {
+  background: #c5c8c6;
+}
+.base06 {
+  background: #e0e0e0;
+}
+.base07 {
+  background: #ffffff;
+}
+.base08 {
+  background: #cc6666;
+}
+.base09 {
+  background: #de935f;
+}
+.base0A {
+  background: #f0c674;
+}
+.base0B {
+  background: #b5bd68;
+}
+.base0C {
+  background: #8abeb7;
+}
+.base0D {
+  background: #81a2be;
+}
+.base0E {
+  background: #b294bb;
+}
+.base0F {
+  background: #a3685a;
+}
