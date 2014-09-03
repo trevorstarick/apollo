@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 .nodemonignore
 .sass-cache/
@@ -7,7 +8,7 @@ public/lib
 app/tests/coverage/
 .bower-*/
 .idea/
-
+=======
 ## HTML5/JavaScript ##
 
 bower_components
@@ -81,3 +82,4 @@ Temporary Items
 
 #sftp configuration file
 sftp-config.json
+>>>>>>> FETCH_HEAD
