@@ -90,20 +90,20 @@ var remoteServer = 'http://localhost:3000';
 
       var svgModule = d3.select('#' + ø.Helpers.encodeID(object.name) + ' .content');
       var margin = {
-          top: 0,
-          right: -15,
-          bottom: 0,
-          left: -15
+          top: 10,
+          right: 10,
+          bottom: 10,
+          left: 10
         },
-        width = parseInt(svgModule.style("width")),
-        // height = parseInt(svgModule.style("height"));
-        height = 50;
+        width = parseInt(svgModule.style("width")) - margin.left - margin.right,
+        height = 150 - margin.top - margin.bottom;
+        // height = parseInt(svgModule.style("width")) - margin.top - margin.bottom;
 
       var svg = svgModule.append("svg")
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height * 2)
+        .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + height/2 + ")");
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var x = d3.scale.linear()
         .domain([0, n - 1])
