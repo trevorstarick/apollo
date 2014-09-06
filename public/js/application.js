@@ -32,16 +32,19 @@ var remoteServer = 'http://localhost:3000';
       d = x/ 4;
 
       div.id = ø.Helpers.encodeID(object.name);
-      div.cl = "col-xs-"+a+" col-sm-"+b+" col-md-"+c+" col-lg-"+d+" module";
+      div.cl = "col-xs-"+a+" col-sm-"+b+" col-md-"+c+" col-lg-"+d;
       
       for(var i in Object.keys(div)) {
         var k = Object.keys(div)[i];
         var v = div[k];
       }
 
-      template += '<div id="'+div.id+'"class="'+div.cl+'">';
+      template += '<div class="'+div.cl+'">';
+      template += '<div class="module" id="'+div.id+'">';
       template += '<h1>' + ø.Helpers.decodeID(div.id) + '</h1>';
+      // template += '<hr />';
       template += '<div class="content"></div>';
+      template += '</div>';
       template += '</div>';
 
       $('#modules .row').append(template);
