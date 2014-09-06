@@ -85,7 +85,7 @@ var remoteServer = 'http://localhost:3000';
       }
 
       var n = 40,
-        random = d3.random.normal(0, 1),
+        random = d3.random.normal(0, 0.25),
         data = d3.range(n).map(random);
 
       var svgModule = d3.select('#' + ø.Helpers.encodeID(object.name) + ' .content');
