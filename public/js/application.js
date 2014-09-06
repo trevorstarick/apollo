@@ -77,7 +77,7 @@ var remoteServer = 'http://localhost:3000';
           .attr("transform", null)
           .transition()
           .duration(250) //in ms
-        .ease("linear")
+          .ease("linear")
           .attr("transform", "translate(" + x(-1) + ",0)")
           .each("end", tick);
 
@@ -114,13 +114,15 @@ var remoteServer = 'http://localhost:3000';
         .range([height, 0]);
 
       var line = d3.svg.line()
-        .interpolate("basis")
-        .x(function(d, i) {
-          return x(i);
-        })
-        .y(function(d, i) {
-          return y(d);
-        });
+        // .interpolate("basis")
+        .x(function(d, i) { return x(i); })
+        .y(function(d, i) { return y(d); });
+
+      svg.append("defs").append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("width", width)
+        .attr("height", height);
 
       var path = svg.append("g")
         .attr("clip-path", "url(#clip)")
@@ -181,7 +183,9 @@ var remoteServer = 'http://localhost:3000';
       }
 
       $.each(data, function(k, v) {
-        ø.Module.update(v);
+        if(v.type !== 'float') {
+          ø.Module.update(v);
+        }
       });
     });
   }, updateInterval);
