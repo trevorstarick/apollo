@@ -29,7 +29,7 @@ var remoteServer = 'http://localhost:3000';
       a = x/ 1;
       b = x/ 2;
       c = x/ 3;
-      d = x/ 4;
+      d = x/ 3;
 
       div.id = ø.Helpers.encodeID(object.name);
       div.cl = "col-xs-"+a+" col-sm-"+b+" col-md-"+c+" col-lg-"+d;
