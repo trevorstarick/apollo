@@ -1,13 +1,22 @@
 /*jslint node: true */
 'use strict';
 
+// Start front end on 8080
+// Start api on 3000
+// Use a reverse proxy
+
+// or
+
+// express routing
+
 var express = require('express'),
   bodyParser = require('body-parser');
 
-var routes = require('./routes.js');
+var routes = require('./server/routes.js');
 
 var app = express();
 app.use( bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
   next();
@@ -51,6 +60,6 @@ app.get('/', function(req, res){
   res.send('hello world!');
 });
 
-app.use('/', routes);
+app.use('/api', routes);
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8080);
