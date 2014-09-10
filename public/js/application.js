@@ -1,4 +1,4 @@
-var remoteServer = 'http://localhost:8080/api';
+var remoteServer = '/api';
 
 (function(window, $) {
   var ø = window.ø || {};
