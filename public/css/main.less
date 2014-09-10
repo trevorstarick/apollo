@@ -88,14 +88,17 @@ header .right {
 .gravatar {
 	margin-top: 18px;
 	border-radius: 28px;
-	width: 56px;
-	height: 56px;
-	padding: 3px;
-	background: @base07;
-}
-.gravatar>img {
-	border-radius: 25px;
-	width: 50px
+	width: 50px;
+	height: 50px;
+	border: 3px solid white;
+	background: url('http://www.gravatar.com/avatar/9c4ab1bf32bde32a9e005d19afb79835.jpg');
+	background-size: cover;
+	// width: 56px;
+	// height: 56px;
+	// padding: 3px;
+	// background: @base07;
+	position: relative;
+	z-index: 2;
 }
 .managment {
 	display: none;
