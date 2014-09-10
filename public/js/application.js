@@ -2,6 +2,8 @@ var remoteServer = 'http://localhost:3000';
 
 (function(window, $) {
   var ø = window.ø || {};
+  var lastModuleCount = 0;
+  var updateInterval = 1 * 1000 * 1000;
 
   ø.Helpers = {
     encodeID: function(string) {
@@ -164,8 +166,6 @@ var remoteServer = 'http://localhost:3000';
     }
   };
 
-  var lastModuleCount = 0;
-
   ø.Module.fetch(function(data) {
     lastModuleCount = data.length;
     $.each(data, function(k, v) {
@@ -173,8 +173,6 @@ var remoteServer = 'http://localhost:3000';
       ø.Module.update(v);
     });
   });
-
-  var updateInterval = 1 * 1000;
 
   var updateID = window.setInterval(function(){
     ø.Module.fetch(function(data) {
@@ -195,5 +193,4 @@ var remoteServer = 'http://localhost:3000';
       });
     });
   }, updateInterval);
-
 })(window,$);
