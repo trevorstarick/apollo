@@ -28,37 +28,114 @@ html, body {
 	-webkit-touch-callout: none;
 }
 
-#sidebar {
-	background-color: @base01;
-	width: 250px;
-	height: 100%;
-	padding: 10px;
-	float: left;
-	margin-right: 3px;
-}
-#sidebar>header {
-	width: 100%;
-};
-
-#sidebar>header>img {
-	font-size: 40px;
-}
-#sidebar>header>img {
-	width: 40px;
-	float: left;
-	margin-right: 5px;
-}
-
 #modules {
 	background-color: @base00;
 	width: auto;
-	height: 100%;
+	height: @height;	
 	padding: 25px;
 	overflow: hidden;
 }
 
 #modules>.row {
 	margin: -5px;
+}
+
+header {
+	height: 92px;
+	top: 0px;
+	width: 100%;
+	// position: absolute;
+	// display: none;
+	text-align: center;
+	background: #000;
+}
+
+header .left {
+	position: absolute;
+	left:0;
+	width: 20%;
+	padding-top: 18px;
+	padding-left: 18px;
+	text-align: left;
+}
+
+.logo {
+	width: 54px;
+}
+
+header .center {
+	position: absolute;
+	left:0;
+	right: 0;
+	margin: 0px;
+}
+
+header .center>h1 {
+	padding: 28px;
+	margin: 0px;
+	font-weight: 200;
+}
+
+header .right {
+	position: absolute;
+	right:0px;
+	text-align: right;
+	padding-right: 18px;
+}
+
+.gravatar {
+	margin-top: 18px;
+	border-radius: 28px;
+	width: 56px;
+	height: 56px;
+	padding: 3px;
+	background: @base07;
+}
+.gravatar>img {
+	border-radius: 25px;
+	width: 50px
+}
+.managment {
+	display: none;
+	list-style-type: none;
+}
+.managment>li {
+	display: inline;
+}
+
+aside {
+	height: @height;
+	width: 92px;
+	background: #000;
+	padding: 10px;
+	float: left;
+	padding-top: 20px;
+}
+
+.sidebar {
+	list-style-type: none;
+	padding: 0px;
+	padding-left: 10px;
+}
+.sidebar li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.sidebar>li>a {
+	color: @base07;
+}
+
+.sidebar>li>a:hover {
+	color: @base0C;
+}
+
+footer {
+	height: 40px;
+	bottom: 0px;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	background: #000;
 }
 
 .module {
@@ -101,15 +178,6 @@ svg {
 
 .warnText {
 	color: @base09;
-}
-
-footer {
-	width: 100%;
-	height: 40px;
-	bottom: 0px;
-	text-align: center;
-	background: #000;
-	position: absolute;
 }
 
 .base16 {
