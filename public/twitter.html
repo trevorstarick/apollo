@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <link rel="stylesheet/less" type="text/css" href="css/main.less">
+
+        <script src="js/less.js" type="text/javascript"></script>
+        <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+        <script type='text/javascript' src='http://momentjs.com/downloads/moment.min.js'></script>
+        <script src="js/modernizr.js"></script>
+    </head>
+    <body>
+
+        <header>
+            <div class="left">
+                <!-- <i class="fa fa-rocket fa-fw fa-4x"></i> -->
+                <img class="logo" src="img/logo.png">
+            </div>
+            <div class="center">
+                <h1>The Apollo Project</h1>
+            </div>
+            <div class="right">
+                <a type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    <div class="gravatar"></div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right managment" role="menu" aria-labelledby="dropdownMenu1">
+                    <li><a><b>Trevor Starick</b></a></li>
+                    <li class="divider"></li>
+                    <li><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-trello fa-fw"></i>Module Admin</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-users fa-fw"></i>User Admin</a></li>
+                    <br />
+                    <li><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog fa-fw"></i>Settings</a></li>
+                    <br />
+                    <li><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <aside>
+            <ul class="sidebar">
+                <li><a href="/twitter"><i class="fa fa-twitter-square fa-fw fa-3x"></i></a></li>
+                <li><a href="/kpi"><i class="fa fa-trello fa-fw fa-3x"></i></a></li>
+                <li><a href="/stats"><i class="fa fa-tachometer fa-fw fa-3x"></i></a></li>
+                <li><a href="/database"><i class="fa fa-database fa-fw fa-3x"></i></a></li>
+            </ul>
+        </aside>
+
+
+        <section id="modules">
+          <div class="container">
+            <button id='clear' class='btn btn-warning'>Clear</button>
+            <div class="tweets"></div>
+          </div>
+        </section>
+
+        <footer>
+            <div class="base16">
+                <div class="base00">00</div>
+                <div class="base01">01</div>
+                <div class="base02">02</div>
+                <div class="base03">03</div>
+                <div class="base04">04</div>
+                <div class="base05">05</div>
+                <div class="base06">06</div>
+                <div class="base07">07</div>
+                <div class="base08">08</div>
+                <div class="base09">09</div>
+                <div class="base0A">0A</div>
+                <div class="base0B">0B</div>
+                <div class="base0C">0C</div>
+                <div class="base0D">0D</div>
+                <div class="base0E">0E</div>
+                <div class="base0F">0F</div>
+            </div>
+        </footer>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+
+        <script src="./js/d3.min.js"></script>
+        
+        <script src="./js/twitter.js"></script>
+        <script src="./js/application.js"></script>
+    </body>
+</html>

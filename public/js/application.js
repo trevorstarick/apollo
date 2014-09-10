@@ -193,4 +193,11 @@ var remoteServer = 'http://localhost:8080/api';
       });
     });
   }, updateInterval);
+
+  $('.gravatar').on('show', function(event, dropdownData) {
+    console.log(dropdownData);
+  }).on('hide', function(event, dropdownData) {
+      console.log(dropdownData);
+  });
+
 })(window,$);
