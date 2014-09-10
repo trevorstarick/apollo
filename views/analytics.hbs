@@ -1,0 +1,40 @@
+<style>
+.count {
+  height: 230px;
+}
+.count>h1 {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  font-size: 72px;
+  height: 115px;
+  text-align: center;
+}
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+</style>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="stat-panel">
+      <div class="stat-cell col-sm-8 bg-primary padding-sm valign-middle">
+        <div class="count">
+          <h1></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <pre class="dump"></pre>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/javascripts/analytics.js"></script>

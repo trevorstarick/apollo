@@ -1,0 +1,110 @@
+<style>
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+ </style>
+<div class="table-responsive">
+	<h4>Total Count: <%= @totalCount %></h4>
+	<h3 style="color: green;">Running</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Provider</th>
+				<th>Last Run</th>
+				<th>Last Check</th>
+				<th>Count</th>
+				<th>Successful Run</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for p in Object.keys(@providers) : %>
+				<% if @providers[p]['running'] is true : %>
+					<tr>
+						<td><%=  p[0].toUpperCase() + p.slice(1) %></td>
+						<td><%= @providers[p]['d'] %></td>
+						<td><%= @providers[p]['lastCheck'] %></td>
+						<td><%= @providers[p]['count'] %></td>
+						<% if @providers[p]['successRun'] == 'True' : %>
+							<td style="color: green;"><b><%= @providers[p]['successRun'] %></b></td>
+						<% else if @providers[p]['successRun'] in ['False', 'False (GS)'] : %>
+							<td style="color: red;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else if @providers[p]['successRun'] in ['Partial'] : %>
+							<td style="color: orange;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else : %>
+							<td><%= @providers[p]['successRun'] %></td>
+						<% end %>
+					</tr>
+				<% end %>
+			<% end %>
+		<tbody>
+	</table>
+
+	<h3 style="color: orange;">In Queue</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Provider</th>
+				<th>Last Run</th>
+				<th>Last Check</th>
+				<th>Count</th>
+				<th>Successful Run</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for p in Object.keys(@providers) : %>
+				<% if @providers[p]['inQueue'] is true : %>
+					<tr>
+						<td><%=  p[0].toUpperCase() + p.slice(1) %></td>
+						<td><%= @providers[p]['d'] %></td>
+						<td><%= @providers[p]['lastCheck'] %></td>
+						<td><%= @providers[p]['count'] %></td>
+						<% if @providers[p]['successRun'] == 'True' : %>
+							<td style="color: green;"><b><%= @providers[p]['successRun'] %></b></td>
+						<% else if @providers[p]['successRun'] in ['False', 'False (GS)', 'GS Queue Error'] : %>
+							<td style="color: red;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else if @providers[p]['successRun'] in ['Partial'] : %>
+							<td style="color: orange;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else : %>
+							<td><%= @providers[p]['successRun'] %></td>
+						<% end %>
+					</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+
+	<h3>Idle</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Provider</th>
+				<th>Last Run</th>
+				<th>Last Check</th>
+				<th>Count</th>
+				<th>Successful Run</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for p in Object.keys(@providers) : %>
+				<% if @providers[p]['inQueue'] is false and @providers[p]['running'] is false : %>
+					<tr>
+						<td><%=  p[0].toUpperCase() + p.slice(1) %></td>
+						<td><%= @providers[p]['d'] %></td>
+						<td><%= @providers[p]['lastCheck'] %></td>
+						<td><%= @providers[p]['count'] %></td>
+						<% if @providers[p]['successRun'] == 'True' : %>
+							<td style="color: green;"><b><%= @providers[p]['successRun'] %></b></td>
+						<% else if @providers[p]['successRun'] in ['False', 'False (GS)'] : %>
+							<td style="color: red;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else if @providers[p]['successRun'] in ['Partial'] : %>
+							<td style="color: orange;"><a href="#" onclick='bootbox.alert("<%= @providers[p]['errorMessage'] %>")'><b><%= @providers[p]['successRun'] %></b></a></td>
+						<% else : %>
+							<td><%= @providers[p]['successRun'] %></td>
+						<% end %>
+					</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>

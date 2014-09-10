@@ -1,0 +1,24 @@
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Cron</th>
+				<th>Last Run</th>
+				<th>Success</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% for p in Object.keys(@crons) : %>
+			<tr>
+				<td><%=  p[0].toUpperCase() + p.slice(1) %></td>
+				<td><%= @crons[p]['runTime'] %></td>
+				<% if @crons[p]['success'] in ['False', 'False (GS)'] : %>
+					<td style="color: red;"><b><%= @crons[p]['success'] %></b></td>
+				<% else : %>
+					<td style="color: green;"><b><%= @crons[p]['success'] %></b></td>
+				<% end %>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>

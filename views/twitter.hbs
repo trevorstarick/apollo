@@ -1,0 +1,109 @@
+{{#extend "stylesheets"}}
+<style id="jsbin-css">
+.msg {
+  padding: 2px 5px;
+  height: 58px;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.rn, .loc, .dateTime {
+  font-weight: bold;
+}
+
+.relevant {
+  background-color: #ecf0f1;
+}
+
+.settings {
+  margin-top: 10px;
+  border-top: 3px #455 solid;
+  padding: 5px;
+}
+</style>
+{{/extend}}
+
+<div id="firebase-stream" class="container">
+      
+</div>
+<div class="settings">
+  <input id="auto-scroll" type="checkbox" value="auto-scroll">
+  <label for="auto-scroll">Auto Scroll ?</label>&nbsp; &nbsp;
+  <button id="clear" class="btn btn-warning">Clear listings</button>
+</div>
+
+{{#extend "scripts"}}
+<script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+<script>
+(function(window, $) {
+  var opt = {
+    autoScroll: false
+  };
+
+  var myDataRef = new Firebase('https://mining.firebaseio.com/');
+  myDataRef.on('child_added', function(snapshot) {
+    var tweet = snapshot.val();
+    displayTweet(tweet);
+    if (opt.autoScroll) {
+      $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+    }
+  });
+  
+  function displayTweet(data) {
+    var html = "";
+    var icon = "<i class='fa fa-twitter'></i>&nbsp;";
+    var location = "";
+    var relevant = "relevant";;
+    var search = data.shortLink;
+    
+    console.log(data);
+
+    if (data.location) {
+      location = " from <span class='loc'>" + data.location + "</span>";
+    }
+    
+    var timestamp = moment.unix(data.timestamp);
+    var date = timestamp.format("h:mm:ssA - MM/DD/YYYY");
+    
+    html += "<div class='msg " + relevant + "'>";
+      html += "<img style='float:left; margin-right:5px' src='" + data.userImage + "'>";
+      html += "<div class='misc'>";
+        html += icon;
+        html += "<span class='rn'>" + data.realName + "</span>";
+        html += location;
+        html += " said this at <span class='dateTime'>" + date + "</span>";
+      html += "</div>";
+      html += "<a href='" + data.link + "' class='content' target='_blank' data-sl='" + search + "'>" + data.text + "</a>";
+    html += "</div>";
+    html += "<hr>";
+    
+    $('#firebase-stream').prepend(html);
+  }
+  
+    setTimeout(function() {
+      $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+    }, 1200);
+  
+  
+  $('#clear').click(function() {
+    myDataRef.remove();
+    $('#container').empty();
+  });
+  
+  $('#auto-scroll').change(function(){
+    if ($(this).is(":checked")) {
+      opt.autoScroll = true;
+    } else {
+      opt.autoScroll = false;
+    }
+  });
+  
+  $('.container').on("click", ".content", function(e) {
+    e.preventDefault();
+    var url = $(e.currentTarget);
+    window.open(url.attr("href"));
+    window.open(url.data("sl"));
+  });
+})(window, jQuery, undefined);
+</script>
+{{/extend}}

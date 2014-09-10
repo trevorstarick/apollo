@@ -13,6 +13,17 @@ var express = require('express'),
   bodyParser = require('body-parser');
 
 var routes = require('./server/routes.js');
+// var controllers = require('./controllers');
+
+/** TO BE FIXED **
+ * var getservice = require('./routes/getservice');
+ * var pycron = require('./routes/pycron');
+ * var analytics = require('./routes/analytics');
+ * // var controllers = require('./controllers/index'),
+ * var Auth = controllers.auth;
+ * 
+ * var auth = Auth.authUser;
+ */
 
 var app = express();
 app.use( bodyParser.urlencoded({ extended: false }));
@@ -21,6 +32,20 @@ app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
   next();
 });
+
+/** TO BE FIXED **
+ * app.use(function(req, res, next) {
+ *   // console.log(!req.isAuthenticated(), req.url !== '/login');
+ *   if (!req.isAuthenticated() && req.url !== '/login') {
+ *     res.render('login', {
+ *       layout: false,
+ *       user: req.user,
+ *       message: req.session.messages
+ *     });
+ *   }
+ *   next();
+ * });
+ */
 
 express.response.jsonp = function(obj) {
   var replacer = app.get('json replacer');

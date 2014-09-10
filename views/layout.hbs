@@ -1,0 +1,471 @@
+<!doctype html>
+<html class="gt-ie8 gt-ie9 not-ie" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DasBoard - {{ user.company }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/pixel-admin.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/themes.min.css" rel="stylesheet" type="text/css">
+    {{{block "stylesheets"}}}
+  </head>
+    <body class="theme-default main-menu-animated">
+    <script>
+      var init = [];
+    </script>
+    <!-- Navigation bar -->
+    <div id="main-wrapper">
+
+      <div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Main menu toggle -->
+        <button type="button" id="main-menu-toggle">
+          <i class="navbar-icon fa fa-bars icon">
+          </i>
+          <span class="hide-menu-text">
+            HIDE MENU
+          </span>
+        </button>
+
+        <div class="navbar-inner">
+          <!-- Main navbar header -->
+          <div class="navbar-header">
+
+            <!-- Logo -->
+            <a href="/" class="navbar-brand">
+              <div>
+                <img alt="{{ user.company }}" src="images/pixel-admin/main-navbar-logo.png">
+              </div>
+              {{ user.company }}
+            </a>
+
+            <!-- Main navbar toggle -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+              <i class="navbar-icon fa fa-bars">
+              </i>
+            </button>
+
+          </div>
+
+
+          <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+            <div>
+              <ul class="nav navbar-nav">
+                <li>
+                  <a href="#">
+                    Home
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">
+                        First item
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        Second item
+                      </a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                      <a href="#">
+                        Third item
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+
+              <div class="right clearfix">
+                <ul class="nav navbar-nav pull-right right-navbar-nav">
+
+                  <li class="nav-icon-btn nav-icon-btn-danger dropdown">
+                    <a href="#notifications" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="label">
+                        0
+                      </span>
+                      <i class="nav-icon fa fa-bullhorn">
+                      </i>
+                      <span class="small-screen-text">
+                        Notifications
+                      </span>
+                    </a>
+
+                    <!-- NOTIFICATIONS -->
+
+                    <!-- Javascript -->
+                    <script>
+                      init.push(function () {
+                        $('#main-navbar-notifications').slimScroll({
+                          height: 250 });
+                      });
+                    </script>
+
+                    <div class="dropdown-menu widget-notifications no-padding" style="width: 300px">
+                      <div class="notifications-list" id="main-navbar-notifications">
+
+                        <div class="notification">
+                          <div class="notification-title text-danger">
+                            SYSTEM
+                          </div>
+                          <div class="notification-description">
+                            <strong>
+                              Error 500
+                            </strong>
+                            : Syntax error in index.php at line
+                            <strong>
+                              461
+                            </strong>
+                            .
+                          </div>
+                          <div class="notification-ago">
+                            12h ago
+                          </div>
+                          <div class="notification-icon fa fa-hdd-o bg-danger">
+                          </div>
+                        </div>
+
+
+                        <div class="notification">
+                          <div class="notification-title text-info">
+                            STORE
+                          </div>
+                          <div class="notification-description">
+                            You have
+                            <strong>
+                              9
+                            </strong>
+                            new orders.
+                          </div>
+                          <div class="notification-ago">
+                            12h ago
+                          </div>
+                          <div class="notification-icon fa fa-truck bg-info">
+                          </div>
+                        </div>
+
+
+                        <div class="notification">
+                          <div class="notification-title text-default">
+                            CRON DAEMON
+                          </div>
+                          <div class="notification-description">
+                            Job
+                            <strong>
+                              "Clean DB"
+                            </strong>
+                            has been completed.
+                          </div>
+                          <div class="notification-ago">
+                            12h ago
+                          </div>
+                          <div class="notification-icon fa fa-clock-o bg-default">
+                          </div>
+                        </div>
+
+
+                        <div class="notification">
+                          <div class="notification-title text-success">
+                            SYSTEM
+                          </div>
+                          <div class="notification-description">
+                            Server
+                            <strong>
+                              up
+                            </strong>
+                            .
+                          </div>
+                          <div class="notification-ago">
+                            12h ago
+                          </div>
+                          <div class="notification-icon fa fa-hdd-o bg-success">
+                          </div>
+                        </div>
+
+
+                        <div class="notification">
+                          <div class="notification-title text-warning">
+                            SYSTEM
+                          </div>
+                          <div class="notification-description">
+                            <strong>
+                              Warning
+                            </strong>
+                            : Processor load
+                            <strong>
+                              92%
+                            </strong>
+                            .
+                          </div>
+                          <div class="notification-ago">
+                            12h ago
+                          </div>
+                          <div class="notification-icon fa fa-hdd-o bg-warning">
+                          </div>
+                        </div>
+
+
+                      </div>
+
+                      <a href="#" class="notifications-link">
+                        // Coming soon //
+                      </a>
+                    </div>
+
+                  </li>
+                  <li class="nav-icon-btn nav-icon-btn-success dropdown">
+                    <a href="#messages" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="label">
+                        0
+                      </span>
+                      <i class="nav-icon fa fa-envelope">
+                      </i>
+                      <span class="small-screen-text">
+                        Income messages
+                      </span>
+                    </a>
+
+                    <!-- MESSAGES -->
+
+                    <!-- Javascript -->
+                    <script>
+                      init.push(function () {
+                        $('#main-navbar-messages').slimScroll({
+                          height: 250 });
+                      });
+                    </script>
+
+                    <div class="dropdown-menu widget-messages-alt no-padding" style="width: 300px;">
+                      <div class="messages-list" id="main-navbar-messages">
+
+                        {{!-- <div class="message">
+                          <img src="demo/avatars/2.jpg" alt="" class="message-avatar">
+                          <a href="#" class="message-subject">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                          </a>
+                          <div class="message-description">
+                            from
+                            <a href="#">
+                              Robert Jang
+                            </a>
+                            &nbsp;&nbsp;·&nbsp;&nbsp;
+                            2h ago
+                          </div>
+                        </div> --}}
+                      </div>
+
+                      <a href="#" class="messages-link">
+                        // Coming soon //
+                      </a>
+                    </div>
+
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
+                      <img src="{{ user.gravatar }}" alt="">
+                      <span>
+                        {{ user.fullName }}
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="/logout">
+                          <i class="dropdown-icon fa fa-power-off">
+                          </i>
+                          &nbsp;&nbsp;Log Out
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /Navigation bar -->
+
+      <!-- Side bar -->
+      <div id="main-menu" role="navigation">
+        <div id="main-menu-inner">
+          <div class="menu-content top" id="menu-content-demo">
+            <div>
+              <div class="text-bg">
+                <span class="text-slim">
+                  Welcome,
+                </span>
+
+                <span class="text-semibold">
+                  {{ user.firstName }}
+                </span>
+              </div>
+
+              <img src="{{ user.gravatar }}" alt="" class="">
+              <div class="btn-group">
+                <a href="#" class="btn btn-xs btn-primary btn-outline dark">
+                  <i class="fa fa-envelope">
+                  </i>
+                </a>
+                <a href="#" class="btn btn-xs btn-primary btn-outline dark">
+                  <i class="fa fa-user">
+                  </i>
+                </a>
+                <a href="#" class="btn btn-xs btn-primary btn-outline dark">
+                  <i class="fa fa-cog">
+                  </i>
+                </a>
+                <a href="#" class="btn btn-xs btn-danger btn-outline dark">
+                  <i class="fa fa-power-off">
+                  </i>
+                </a>
+              </div>
+              <a href="#" class="close">
+                &times;
+              </a>
+            </div>
+          </div>
+          <ul class="navigation">
+            <li class="">
+              <a href="/">
+                <i class="menu-icon fa fa-dashboard">
+                </i>
+                <span class="mm-text">
+                  Dashboard
+                </span>
+              </a>
+            </li>
+<!--             <li class="">
+              <a href="/analytics">
+                <i class="menu-icon fa fa-bar-chart-o">
+                </i>
+                <span class="mm-text">
+                  Analytics
+                </span>
+              </a>
+            </li> -->
+            <li class="">
+              <a href="/getservice">
+                <i class="menu-icon fa fa-list">
+                </i>
+                <span class="mm-text">
+                  Get Service
+                </span>
+              </a>
+            </li>
+           <li class="">
+              <a href="/pycron">
+                <i class="menu-icon fa fa-list">
+                </i>
+                <span class="mm-text">
+                  PyCron
+                </span>
+              </a>
+            </li>
+<!--             <li class="">
+              <a href="/twitter">
+                <i class="menu-icon fa fa-twitter">
+                </i>
+                <span class="mm-text">
+                  Twitter
+                </span>
+              </a>
+            </li> -->
+<!--             <li class="">
+              <a href="/ios">
+                <i class="menu-icon fa fa-apple">
+                </i>
+                <span class="mm-text">
+                  iOS
+                </span>
+              </a>
+            </li> -->
+            <li class="">
+              <a href="/users">
+                <i class="menu-icon fa fa-users">
+                </i>
+                <span class="mm-text">
+                  User Managment
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Side bar -->
+
+      <div id="content-wrapper">
+        <!-- Header -->
+        {{!-- <ul class="breadcrumb breadcrumb-page">
+          <div class="breadcrumb-label text-light-gray">
+            You are here:
+          </div>
+          <li>
+            <a href="/">
+              Home
+            </a>
+          </li>
+          <li class="active">
+            <p>
+              {{ page.current }}
+            </p>
+          </li>
+        </ul> --}}
+        <div class="page-header">
+          <div class="row">
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm">
+              <i class="fa {{ page.icon }} page-header-icon">
+              </i>
+              &nbsp;&nbsp; {{ page.current }}
+            </h1>
+          </div>
+        </div>
+        <!-- /Header -->
+
+  {{{body}}}
+
+  <!-- Page wide horizontal line -->
+        <hr class="no-grid-gutter-h grid-gutter-margin-b no-margin-t">
+
+      </div>
+      <div id="main-menu-bg">
+      </div>
+
+      <p>{{ data }}</p>
+
+    </div>
+
+  {{{block "scripts"}}}
+    <script src="javascripts/bootstrap.min.js">
+    </script>
+    <script src="javascripts/pixel-admin.min.js">
+    </script>
+    <script src="javascripts/hammer.min.js">
+    </script>
+    <script src="javascripts/bootbox.min.js">
+    </script>
+    <script src="javascripts/dasboard.js">
+    </script>
+    <script type="text/javascript">
+      init.push(function () {
+      });
+      window.PixelAdmin.start(init);
+    </script>
+
+  </body>
+</html>

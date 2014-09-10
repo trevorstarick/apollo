@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-12">
+    <script>
+      init.push(function() {
+        var uploads_data = [{
+          day: '2014-03-10',
+          v: 20
+        }, {
+          day: '2014-03-11',
+          v: 10
+        }, {
+          day: '2014-03-12',
+          v: 15
+        }, {
+          day: '2014-03-13',
+          v: 12
+        }, {
+          day: '2014-03-14',
+          v: 5
+        }, {
+          day: '2014-03-15',
+          v: 5
+        }, {
+          day: '2014-03-16',
+          v: 20
+        }];
+        Morris.Line({
+          element: 'hero-graph',
+          data: uploads_data,
+          xkey: 'day',
+          ykeys: ['v'],
+          labels: ['Value'],
+          lineColors: ['#fff'],
+          lineWidth: 2,
+          pointSize: 4,
+          gridLineColor: 'rgba(255,255,255,.5)',
+          resize: true,
+          gridTextColor: '#fff',
+          xLabels: "day",
+          xLabelFormat: function(d) {
+            return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()] + ' ' + d.getDate();
+          }
+        });
+      });
+    </script>
+    
+    <div class="stat-panel">
+      <div class="stat-cell col-sm-8 bg-primary padding-sm valign-middle">
+        <div id="hero-graph" class="graph" style="height: 230px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
