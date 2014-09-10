@@ -12,18 +12,17 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 
-var routes = require('./server/routes.js');
+var api = require('./server/routes.js');
+// var routes = require('./routes');
 // var controllers = require('./controllers');
 
 /** TO BE FIXED **
  * var getservice = require('./routes/getservice');
  * var pycron = require('./routes/pycron');
  * var analytics = require('./routes/analytics');
- * // var controllers = require('./controllers/index'),
- * var Auth = controllers.auth;
- * 
- * var auth = Auth.authUser;
  */
+
+ 
 
 var app = express();
 app.use( bodyParser.urlencoded({ extended: false }));
@@ -32,20 +31,6 @@ app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
   next();
 });
-
-/** TO BE FIXED **
- * app.use(function(req, res, next) {
- *   // console.log(!req.isAuthenticated(), req.url !== '/login');
- *   if (!req.isAuthenticated() && req.url !== '/login') {
- *     res.render('login', {
- *       layout: false,
- *       user: req.user,
- *       message: req.session.messages
- *     });
- *   }
- *   next();
- * });
- */
 
 express.response.jsonp = function(obj) {
   var replacer = app.get('json replacer');
@@ -70,6 +55,8 @@ express.response.jsonp = function(obj) {
   return this.send(body);
 };
 
+
+// CORS
 app.all('*', function(req, res, next){
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
@@ -81,10 +68,7 @@ app.all('*', function(req, res, next){
   next();
 });
 
-app.get('/', function(req, res){
-  res.send('hello world!');
-});
-
-app.use('/api', routes);
+app.use('/twitter', express.static(__dirname + '/public/twitter.html'));
+app.use('/api', api);
 
 app.listen(process.env.PORT || 8080);

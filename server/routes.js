@@ -1,7 +1,7 @@
 var router = require('express').Router();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/modules');
+var conn = mongoose.createConnection('mongodb://localhost/modules');
 
 var Schema = mongoose.Schema;
 
@@ -15,7 +15,7 @@ var moduleSchema = new Schema({
   uuid: String
 });
 
-var Collection = mongoose.model('Module', moduleSchema);
+var Collection = conn.model('Module', moduleSchema);
 
 var ø = require('./helpers.js');
 
