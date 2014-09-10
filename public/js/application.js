@@ -25,12 +25,18 @@ var remoteServer = 'http://localhost:3000';
       var a, b, c, d;
 
       var x = 12;
-
-      a = x/ 1;
-      b = x/ 2;
-      c = x/ 3;
-      d = x/ 3;
-
+      if(object.type !== 'float') {
+        a = x/ 1;
+        b = x/ 2;
+        c = x/ 3;
+        d = x/ 6;        
+      } else {
+        a = x/ 1;
+        b = x/ 1;
+        c = x/ 1.5;
+        d = x/ 3;
+      }
+      
       div.id = ø.Helpers.encodeID(object.name);
       div.cl = "col-xs-"+a+" col-sm-"+b+" col-md-"+c+" col-lg-"+d;
       
@@ -47,7 +53,7 @@ var remoteServer = 'http://localhost:3000';
       template += '</div>';
       template += '</div>';
 
-      $('#modules .row').append(template);
+      $("#modules .row").append(template);
       console.log('Added', div.id);
     },
 
